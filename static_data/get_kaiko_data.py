@@ -1,5 +1,5 @@
 import urllib.request
-token_pair = 'btc-usdt'
+token_pair = 'zrx-usdt'
 exchange = 'bnce'
 
 months = [{"start_date": "2020-01-01", "end_date": "2020-01-31"},
