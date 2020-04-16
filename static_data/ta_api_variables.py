@@ -1,3 +1,20 @@
+SINGLE_METRICS = {
+  'Volume': ['token', 'window'],
+  'Transactions': ['token', 'window'],
+  'Addresses': ['token', 'window'],
+  'NewAddress': ['token', 'window'],
+  'AddressBalances': ['token', 'window'],
+  'Supply': ['token', 'window'],
+  'Nvt': ['token', 'window'],
+  'Fees': ['token', 'window'],
+  'Utxo': ['token', 'window'],
+  'Hashrate': ['token', 'window'],
+  'HashrateBtc': ['token', 'window'],
+  'Rewards': ['token', 'window'],
+  'RewardsBtc': ['token', 'window'],
+  'Sopr': ['token', 'window'],
+}
+
 tokens = ['bat',
           'bch',
           'bnb',
