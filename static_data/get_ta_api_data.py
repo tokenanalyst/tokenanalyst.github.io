@@ -47,7 +47,7 @@ async def save_file(api_name, params, response):
         file_suffix = ''
         for key, value in params.items():
             file_suffix += f'&{key}={value}'
-        filename = f'api/{api_name}&{file_suffix}'
+        filename = f'api/{api_name}{file_suffix}'
         async for data in response.content.iter_chunked(chunk_size):
             async with aiofiles.open(filename, "ba") as f:
                 await f.write(data)
