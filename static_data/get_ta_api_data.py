@@ -13,6 +13,7 @@ import os
 url = f"https://www.tokenanalyst.io/api/"
 file_format = "csv"
 from_date = '2020-01-01'
+to_date = '2020-04-16'
 api_key = os.getenv('TOKENANALYST_KEY')
 
 params_list = []
@@ -66,7 +67,8 @@ async def save_single_metrics(session):
             api_params = params.copy()
             api_params.update({"metric": single_metric})
             api_params.update({"from_date": from_date})
-            response = await session.get(url, params=api_params)
+            api_params.update({"to_date": to_date})
+            response = await session.get(f"{url}single-metric", params=api_params)
             await save_file('single-metric', api_params, response)
 
 
@@ -75,6 +77,7 @@ async def save_flow_metrics(session):
         async for params in generate_param_list(params_list):
             api_params = params.copy()
             api_params.update({"from_date": from_date})
+            api_params.update({"to_date": to_date})
             response = await session.get(f"{url}{flow_metric}", params=api_params)
             await save_file(flow_metric, api_params, response)
 
