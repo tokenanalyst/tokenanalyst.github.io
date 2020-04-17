@@ -1,19 +1,29 @@
 SINGLE_METRICS = {
-  'Volume': ['token', 'window'],
-  'Transactions': ['token', 'window'],
-  'Addresses': ['token', 'window'],
-  'NewAddress': ['token', 'window'],
-  'AddressBalances': ['token', 'window'],
-  'Supply': ['token', 'window'],
-  'Nvt': ['token', 'window'],
-  'Fees': ['token', 'window'],
-  'Utxo': ['token', 'window'],
-  'Hashrate': ['token', 'window'],
-  'HashrateBtc': ['token', 'window'],
-  'Rewards': ['token', 'window'],
-  'RewardsBtc': ['token', 'window'],
-  'Sopr': ['token', 'window'],
+    'Volume': ['token', 'window'],
+    'Transactions': ['token', 'window'],
+    'Addresses': ['token', 'window'],
+    'NewAddress': ['token', 'window'],
+    'AddressBalances': ['token', 'window'],
+    'Supply': ['token', 'window'],
+    'Nvt': ['token', 'window'],
+    'Fees': ['token', 'window'],
+    'Utxo': ['token', 'window'],
+    'Hashrate': ['token', 'window'],
+    'HashrateBtc': ['token', 'window'],
+    'Rewards': ['token', 'window'],
+    'RewardsBtc': ['token', 'window'],
+    'Sopr': ['token', 'window'],
+    'ExchangeBalance': ['token', 'exchange', 'window'],
+    'MinerHashrate': ['token', 'miner', 'window'],
+    'MinerBalances': ['token', 'miner', 'window'],
+    'MinerRewards': ['token', 'miner', 'window'],
 }
+
+FLOW_METRICS = {
+    'exchange-flows': ['token', 'exchange', 'timeWindow'],
+    'miner-flows': ['token', 'miner', 'timeWindow']
+}
+
 
 tokens = ['bat',
           'bch',
@@ -55,36 +65,66 @@ tokens = ['bat',
           'xmr',
           'xrp',
           'zec',
-          'zrx', ]
-windows = ['1h', '1d']
-exchanges = ['binance', 'bitfinex', 'bittrex', 'bitmex',
-             'bitstamp', 'poloniex', 'huobi', 'okex', 'kraken', 'kucoin']
-miners = ['antpool',
-          'btc-top',
-          'btc-com',
-          'bitfury',
-          'f2pool',
-          'huobi-pool',
-          'poolin',
-          'slushpool',
-          'viabtc',
-          '1thash%2658coin',
-          'others',
-          'unknown',
-          'bitclubpool',
-          'coinotron3',
-          'dwarfpool1',
-          'ethermine',
-          'ethpool2',
-          'f2pool2',
-          'miningpoolhub',
-          'nanopool',
-          'sparkpool',
-          'zhizhu-top',
+          'zrx',
           ]
-directions = ['inflow', 'outflow']
-metrics = ['avg_age', 'avg_value', 'count', 'median_age',
-           'total_value', 'weighted_avg_age', 'supply_pct']
+
+windows = [
+    '1h',
+    '1d'
+]
+exchanges = [
+    'binance',
+    'bitfinex',
+    'bittrex',
+    'bitmex',
+    'gemini',
+    'deribit',
+    'bitstamp',
+    'poloniex',
+    'huobi',
+    'okex',
+    'kraken',
+    'kucoin'
+]
+miners = [
+    'antpool',
+    'btc-top',
+    'btc-com',
+    'bitfury',
+    'f2pool',
+    'huobi-pool',
+    'poolin',
+    'slushpool',
+    'viabtc',
+    '1thash%2658coin',
+    'others',
+    'unknown',
+    'bitclubpool',
+    'coinotron3',
+    'dwarfpool1',
+    'ethermine',
+    'ethpool2',
+    'f2pool2',
+    'miningpoolhub',
+    'nanopool',
+    'sparkpool',
+    'zhizhu-top',
+]
+
+directions = [
+    'inflow',
+    'outflow'
+]
+
+metrics = [
+    'avg_age',
+    'avg_value',
+    'count',
+    'median_age',
+    'total_value',
+    'weighted_avg_age',
+    'supply_pct'
+]
 
 VARIABLE_NAMES = {
     'token': tokens,
@@ -92,53 +132,6 @@ VARIABLE_NAMES = {
     'direction': directions,
     'metric': metrics,
     'exchange': exchanges,
-    'miner': miners
-}
-
-NETWORK_API_LIST = [
-    "token_miner_hashrate_historical",
-    "token_volume_window_historical",
-    "token_count_window_historical",
-    "token_mint_burn_window_historical",
-    "token_fees_window_historical",
-    "token_active_address_window_historical",
-    "token_supply_window_historical",
-    "token_nvt_window_historical",
-    "token_miner_rewards_window_historical",
-    "token_miner_hashrate_window_historical",
-    "token_utxo_age_window_historical",
-    "token_price_usd_window_historical",
-    "token_utxo_metric_window_historical",
-    "token_sopr_window_historical",
-    "exchange_flow_window_historical",
-    "exchange_flow_top10_window_historical",
-    "miner_flow_window_historical",
-    "exchange_balance_window_historical",
-    "exchange_balancediff_window_historical",
-    "entity_to_entity_flow_window_historical",
-]
-
-ACTIVE_PARAMS = {
-    "token_hashrate_window_historical": ['token', 'window'],
-    "token_volume_window_historical": ['token', 'window'],
-    "token_count_window_historical": ['token', 'window'],
-    "token_fees_window_historical": ['token', 'window'],
-    "token_active_address_window_historical": ['token', 'window'],
-    "token_supply_window_historical": ['token', 'window'],
-    "token_nvt_window_historical": ['token', 'window'],
-    "token_rewards_window_historical": ['token', 'window'],
-    "token_new_address_window_historical": ['token', 'window'],
-    "token_address_balance_group_window_historical": ['token', 'window'],
-    "token_sopr_window_historical": ['token', 'window'],
-    "token_utxo_age_window_historical": ['token', 'window'],
-    "exchange_balance_window_historical": ['token', 'exchange', 'window'],
-    "exchange_balancediff_window_historical": ['token', 'exchange', 'window'],
-    "exchange_flow_window_historical": ['token', 'exchange', 'direction', 'window'],
-    "token_miner_hashrate_historical": ['token', 'miner', 'window'],
-    "token_miner_rewards_window_historical": ['token', 'miner', 'window'],
-    "miner_flow_window_historical": ['token', 'miner', 'direction', 'window'],
-    "miner_balance_window_historical": ['token', 'miner', 'window'],
-    "token_utxo_metric_window_historical": ['token', 'metric'],
-    "token_price_usd_window_historical": ['token', 'window'],
-    # "entity_to_entity_flow_window_historical",
+    'miner': miners,
+    'timeWindow': windows,
 }
