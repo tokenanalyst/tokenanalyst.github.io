@@ -50,8 +50,8 @@ async def save_file(api_name, params, response):
     try:
         response.raise_for_status()
         file_suffix = ''
-        for key, value in params.items():
-            file_suffix += f'&{key}={value}'
+        for key in sorted(params.keys()):
+            file_suffix += f'&{key}={params[key]}'
         filename = f'api/{api_name}{file_suffix}'
         async for data in response.content.iter_chunked(chunk_size):
             async with aiofiles.open(filename, "ba") as f:
@@ -64,12 +64,12 @@ async def save_file(api_name, params, response):
 async def save_single_metrics(session):
     async for single_metric, params_list in generate_single_metric_list():
         async for params in generate_param_list(params_list):
+            params.update({"metric": single_metric})
             api_params = params.copy()
-            api_params.update({"metric": single_metric})
             api_params.update({"from_date": from_date})
             api_params.update({"to_date": to_date})
             response = await session.get(f"{url}single-metric", params=api_params)
-            await save_file('single-metric', api_params, response)
+            await save_file('single-metric', params, response)
 
 
 async def save_flow_metrics(session):
@@ -79,7 +79,7 @@ async def save_flow_metrics(session):
             api_params.update({"from_date": from_date})
             api_params.update({"to_date": to_date})
             response = await session.get(f"{url}{flow_metric}", params=api_params)
-            await save_file(flow_metric, api_params, response)
+            await save_file(flow_metric, params, response)
 
 
 async def main():
