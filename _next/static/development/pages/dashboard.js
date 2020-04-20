@@ -4350,7 +4350,7 @@ var useApi = function useApi(url, dependencies) {
               switch (_context.prev = _context.next) {
                 case 0:
                   _context.next = 2;
-                  return axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("http://tokenanalyst.github.io/static_data" + url);
+                  return axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("https://tokenanalyst.github.io/static_data" + url);
 
                 case 2:
                   apiResult = _context.sent;
@@ -4408,7 +4408,7 @@ var useGetSummary = function useGetSummary() {
       setSummaryData = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    var apiCalls = [axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-miner-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].BTC)), axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-exchange-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].ETH)), axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-exchange-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].BTC))];
+    var apiCalls = [axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-miner-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].BTC).toLowerCase()), axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-exchange-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].ETH).toLowerCase()), axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://tokenanalyst.github.io/static_data/api/latest-exchange-stats_tokens_".concat(_constants_tokens__WEBPACK_IMPORTED_MODULE_4__["NATIVE_TOKENS"].BTC).toLowerCase())];
 
     _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a.all(apiCalls).then(function (res) {
       var _res = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(res, 3),
